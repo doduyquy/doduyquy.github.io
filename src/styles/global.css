@@ -160,6 +160,24 @@ body {
   opacity: 0.9;
 }
 
+.intro-education {
+  color: #31505c;
+}
+
+.intro-education h2,
+.intro-education strong {
+  color: #18313b;
+}
+
+.dark .intro-education {
+  color: #d1f4f5;
+}
+
+.dark .intro-education h2,
+.dark .intro-education strong {
+  color: #f3fffe;
+}
+
 @keyframes heart-pop {
   0% {
     transform: scale(1);
