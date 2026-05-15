@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+
+const posts = await getCollection("posts", ({ data }) => !data.draft);
+
+posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="Posts">
+    <Header />
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <h1 class="text-4xl font-semibold mb-8">Posts</h1>
+
+        <div class="space-y-6">
+            {posts.map((post) => (
+                <a href={`/posts/${post.id.replace(".md", "")}`} class="block rounded-2xl border p-6 hover:shadow-md">
+                <h2 class="text-2xl font-semibold">{post.data.title}</h2>
+                <p class="text-neutral-500 mt-2">{post.data.description}</p>
+                <p class="text-sm text-neutral-400 mt-3">
+                    {post.data.date.toLocaleDateString()}
+                </p>
+                </a>
+            ))}
+        </div>
+    </main>
+</BaseLayout>

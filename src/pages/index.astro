@@ -1,0 +1,78 @@
+// Read data from `project` & `papers` -> render to card
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import PaperCard from "../components/PaperCard.astro";
+
+const projects = await getCollection("projects", ({ data }) => data.featured);
+const papers = await getCollection("papers", ({ data }) => data.featured);
+---
+
+<BaseLayout title="Đỗ Duy Quý | Portfolio">
+
+	<Header />
+
+	<main class="max-w-6xl mx-auto px-6 py-10">
+		<section class="rounded-[40px] border border-neutral-300 p-8 mb-12">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+				<div>
+					<h2 class="text-3xl font-semibold mb-4">Interests</h2>
+					<ul class="list-disc pl-5 text-lg">
+						<li>Computer Vision</li>
+						<li>Vision Language Model</li>
+						<li>LLM</li>
+						<li>Medical AI</li>
+					</ul>
+				</div>
+
+				<div class="text-center">
+					<img src="/avatar.jpg" class="w-24 h-24 rounded-full mx-auto mb-4" />
+					<h1 class="text-3xl font-semibold">Đỗ Duy Quý</h1>
+					<div class="mt-2">⌘ ✉</div>
+				</div>
+
+				<div>
+					<h2 class="text-3xl font-semibold mb-4">Education</h2>
+					<ul class="list-disc pl-5 text-lg">
+						<li>
+						I'm studying <b>Computer Science</b> at Sai Gon University
+						</li>
+						<li>GPA: <b>3.8/4.0</b></li>
+					</ul>
+				</div>
+			</div>
+    	</section>
+
+		// Split: left-project, right-papers
+		<section class="grid grid-cols-1 md:grid-cols-2 gap-10">
+			<div>
+				<h2 class="text-3xl text-center mb-6">Projects</h2>
+				<div class="space-y-6">
+				{projects.map((project) => <ProjectCard project={project} />)}
+				</div>
+			</div>
+
+			<div>
+				<h2 class="text-3xl text-center mb-6">Papers</h2>
+				<div class="space-y-6">
+				{papers.map((paper) => <PaperCard paper={paper} />)}
+				</div>
+			</div>
+		</section>
+
+	</main>
+</BaseLayout>
+
+
+
+
+// import Layout from '../layouts/Layout.astro';
+// import Welcome from '../components/Welcome.astro';
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+// <Layout>
+// 	<Welcome />
+// </Layout>
