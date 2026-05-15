@@ -43,7 +43,6 @@ body {
 }
 
 .handwriting {
-  /* font-family: "Caveat", cursive; */
   font-family: "Dancing Script", "Imperial Script", "Fleur De Leah", "Questrial", cursive;
 }
 
@@ -56,25 +55,114 @@ body {
   background: color-mix(in srgb, var(--color-bg) 88%, transparent);
 }
 
-.scribble-panel {
+.like-button .heart-shape {
+  transition:
+    fill 160ms ease,
+    stroke 160ms ease,
+    transform 160ms ease;
+  transform-origin: center;
+}
+
+.like-button.is-liked {
+  border-color: color-mix(in srgb, #ef4444 42%, var(--color-line));
+  color: #ef4444;
+}
+
+.like-button.is-liked .heart-shape {
+  fill: #ef4444;
+  stroke: #ef4444;
+}
+
+.like-button.is-popping .heart-icon {
+  animation: heart-pop 420ms cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+
+.posts-link {
+  border: 1px solid color-mix(in srgb, var(--color-blue) 42%, var(--color-line));
+  background: var(--color-blue-deep);
+  color: var(--color-surface);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--color-blue-deep) 16%, transparent);
+}
+
+.posts-link:hover {
+  transform: translateY(-1px);
+  background: var(--color-blue);
+}
+
+.language-switch {
   position: relative;
-  border: 1px solid var(--color-line);
-  border-radius: 36px;
+  gap: 4px;
+}
+
+.language-option {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 999px;
+  opacity: 0.6;
+  transition:
+    background 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.language-option:hover {
+  opacity: 0.9;
+}
+
+.language-switch[data-current="vi"] [data-lang-option="vi"],
+.language-switch[data-current="en"] [data-lang-option="en"] {
+  background: var(--color-blue-deep);
+  opacity: 1;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-blue-deep) 16%, transparent);
+}
+
+.flag-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  object-fit: cover;
+  transition: transform 160ms ease;
+}
+
+.language-switch[data-current="vi"] [data-lang-option="vi"] .flag-icon,
+.language-switch[data-current="en"] [data-lang-option="en"] .flag-icon {
+  transform: scale(0.86);
+}
+.intro-panel {
+  position: relative;
+  border-radius: 34px;
   background:
     radial-gradient(circle at 50% 0%, rgba(120, 213, 236, 0.14), transparent 32%),
     var(--color-surface);
   box-shadow: var(--shadow-soft);
+  overflow: hidden;
 }
 
-.scribble-panel::before {
-  content: "";
+.intro-blob {
   position: absolute;
-  inset: -7px 22px auto;
-  height: 36px;
-  border-top: 2px solid var(--color-blue-deep);
-  border-radius: 44% 56% 48% 52% / 100% 100% 0 0;
-  opacity: 0.58;
+  top: -48px;
+  right: -118px;
+  width: min(68%, 700px);
+  height: calc(100% + 120px);
   pointer-events: none;
+  opacity: 0.9;
+}
+
+@keyframes heart-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.35) rotate(-8deg);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 .content-card {
@@ -154,11 +242,14 @@ body {
     width: min(100% - 1.25rem, 1120px);
   }
 
-  .scribble-panel {
+  .intro-panel {
     border-radius: 24px;
   }
 
-  .scribble-panel::before {
-    inset-inline: 16px;
+  .intro-blob {
+    top: -28px;
+    right: -160px;
+    width: 110%;
+    opacity: 0.42;
   }
 }

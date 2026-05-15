@@ -14,12 +14,25 @@ const papers = await getCollection("papers", ({ data }) => data.featured);
 
 	<Header />
 
-	<main class="page-shell py-8 sm:py-10">
-		<section class="scribble-panel mb-12 p-6 sm:p-8 lg:p-10">
-			<div class="grid gap-8 lg:grid-cols-[1fr_280px_1fr] lg:items-center">
+	<main class="page-shell py-7 sm:py-9">
+		<section class="intro-panel mb-10 px-6 py-7 sm:px-8 sm:py-8 lg:px-10">
+			<svg class="intro-blob" viewBox="0 0 760 420" preserveAspectRatio="none" aria-hidden="true">
+				<defs>
+					<linearGradient id="introBlobGradient" x1="168" y1="28" x2="586" y2="406" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#7BE3CE" />
+						<stop offset="1" stop-color="#187DA0" />
+					</linearGradient>
+				</defs>
+				<path
+					d="M204 37C287-11 332 54 394 51C487 47 500-9 585 3C674 16 760 88 747 188C734 289 648 377 542 377C433 377 372 414 265 416C156 418 45 386 17 284C-10 185 22 80 112 74C150 72 167 58 204 37Z"
+					fill="url(#introBlobGradient)"
+					transform="translate(0 35)"
+				/>
+			</svg>
+			<div class="relative z-10 grid gap-6 lg:grid-cols-[1fr_240px_1fr] lg:items-center">
 				<div class="order-2 lg:order-1">
-					<h2 class="text-3xl font-semibold text-[var(--color-text)]">Interests</h2>
-					<ul class="mt-5 space-y-3 text-lg text-[var(--color-muted)]">
+					<h2 class="text-2xl font-semibold text-[var(--color-text)] sm:text-3xl">Interests</h2>
+					<ul class="mt-4 space-y-3 text-base text-[var(--color-muted)] sm:text-lg">
 						<li class="flex gap-3"><span class="mt-2 size-2 rounded-full bg-[var(--color-blue)]"></span>Computer Vision</li>
 						<li class="flex gap-3"><span class="mt-2 size-2 rounded-full bg-[var(--color-blue)]"></span>Vision Language Model</li>
 						<li class="flex gap-3"><span class="mt-2 size-2 rounded-full bg-[var(--color-blue)]"></span>LLM and Medical AI</li>
@@ -30,7 +43,7 @@ const papers = await getCollection("papers", ({ data }) => data.featured);
 					<img
 						src="/avatar_nii.png"
 						alt="Portrait of Đỗ Duy Quý"
-						class="mx-auto size-28 rounded-full border-4 border-[var(--color-surface)] object-cover shadow-lg shadow-cyan-900/10"
+						class="mx-auto size-24 rounded-full border-4 border-[var(--color-surface)] object-cover shadow-lg shadow-cyan-900/10 sm:size-28"
 					/>
 					<h1 class="mt-5 text-3xl font-semibold text-[var(--color-text)]">Đỗ Duy Quý</h1>
 					<div class="mt-4 flex justify-center gap-3">
@@ -48,16 +61,24 @@ const papers = await getCollection("papers", ({ data }) => data.featured);
 					</div>
 				</div>
 
-				<div class="order-3">
-					<h2 class="text-3xl font-semibold text-[var(--color-text)]">Education</h2>
-					<ul class="mt-5 space-y-3 text-lg text-[var(--color-muted)]">
+				<div class="order-3 lg:self-center lg:justify-self-end lg:text-left">
+					<h2 class="text-2xl font-semibold text-[var(--color-text)] sm:text-3xl">Education</h2>
+
+					<ul class="mt-4 space-y-3 text-base text-[var(--color-muted)] sm:text-lg">
 						<li class="flex gap-3">
-							<span class="mt-2 size-2 rounded-full bg-[var(--color-blue)]"></span>
-							<span>B.E <strong class="text-[var(--color-text)]">Computer Science</strong> <br> at Sai Gon University.</span>
+							<span class="mt-2 size-2 shrink-0 rounded-full bg-[var(--color-blue)]"></span>
+							<span>
+								B.E <strong class="text-[var(--color-text)]">Computer Science</strong>
+								<br />
+								at Sai Gon University.
+							</span>
 						</li>
+
 						<li class="flex gap-3">
-							<span class="mt-2 size-2 rounded-full bg-[var(--color-blue)]"></span>
-							<span>GPA: <strong class="text-[var(--color-text)]">3.8/4.0</strong></span>
+							<span class="mt-2 size-2 shrink-0 rounded-full bg-[var(--color-blue)]"></span>
+							<span>
+								GPA: <strong class="text-[var(--color-text)]">3.8/4.0</strong>
+							</span>
 						</li>
 					</ul>
 				</div>
@@ -88,4 +109,3 @@ const papers = await getCollection("papers", ({ data }) => data.featured);
 
 	</main>
 </BaseLayout>
-

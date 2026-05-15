@@ -1,29 +1,33 @@
-<header class="site-header sticky top-0 z-50 border-b border-[var(--color-line)] backdrop-blur-xl">
-  <div class="page-shell flex min-h-16 items-center justify-between gap-3 py-2">
-    <a
-      href="/"
-      class="link-focus grid size-10 shrink-0 place-items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-blue-deep)] transition hover:-translate-y-0.5 hover:border-[var(--color-blue)]"
-      aria-label="Home"
-      title="Home"
-    >
-      <svg viewBox="0 0 24 24" class="size-5" aria-hidden="true">
-        <path d="M3 10.7 12 3l9 7.7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M6.5 9.8V21h11V9.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M10 21v-6h4v6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </a>
+---
+import homeIconSrc from "../assets/home.svg?url";
+import viFlagSrc from "../assets/vi_flag.png?url";
+import usFlagSrc from "../assets/us_flag.png?url";
+---
 
-    <label class="hidden min-w-36 max-w-56 flex-1 items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2 text-[var(--color-muted)] md:flex">
-      <svg viewBox="0 0 24 24" class="size-4 shrink-0" aria-hidden="true">
-        <path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
-        <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8" />
-      </svg>
-      <input
-        type="search"
-        placeholder="Search"
-        class="w-full bg-transparent text-sm text-[var(--color-text)] outline-none placeholder:text-[var(--color-muted)]"
-      />
-    </label>
+<header class="site-header sticky top-0 z-50 border-b border-[var(--color-line)] backdrop-blur-xl">
+  <div class="page-shell grid min-h-16 grid-cols-[1fr_auto_1fr] items-center gap-3 py-2">
+    <div class="flex min-w-0 items-center gap-2">
+      <a
+        href="/"
+        class="link-focus grid size-10 shrink-0 place-items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] transition hover:-translate-y-0.5 hover:border-[var(--color-blue)]"
+        aria-label="Home"
+        title="Home"
+      >
+        <img src={homeIconSrc} alt="" class="size-5 opacity-90" />
+      </a>
+
+      <label class="hidden w-48 items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-4 py-2 text-[var(--color-muted)] md:flex lg:w-56 xl:w-64">
+        <svg viewBox="0 0 24 24" class="size-4 shrink-0" aria-hidden="true">
+          <path d="m21 21-4.35-4.35" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+        </svg>
+        <input
+          type="search"
+          placeholder="Search"
+          class="w-full bg-transparent text-sm text-[var(--color-text)] outline-none placeholder:text-[var(--color-muted)]"
+        />
+      </label>
+    </div>
 
     <a href="/" class="handwriting link-focus min-w-fit px-2 text-center text-3xl font-semibold text-[var(--color-text)] sm:text-4xl">
       hi, i'm nii
@@ -32,28 +36,42 @@
     <nav class="flex items-center justify-end gap-2 sm:gap-3" aria-label="Main navigation">
       <button
         id="like-button"
-        class="link-focus hidden h-10 items-center gap-1 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-3 text-sm text-[var(--color-blue-deep)] transition hover:border-[var(--color-blue)] sm:flex"
+        class="like-button link-focus hidden h-10 items-center gap-1 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-3 text-sm text-[var(--color-blue-deep)] transition hover:border-[var(--color-blue)] sm:flex"
         type="button"
         aria-label="Like"
       >
-        <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true">
-          <path d="M20.4 5.8a5 5 0 0 0-7.1 0L12 7.1l-1.3-1.3a5 5 0 1 0-7.1 7.1L12 21.3l8.4-8.4a5 5 0 0 0 0-7.1Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+        <svg viewBox="0 0 24 24" class="heart-icon size-4" aria-hidden="true">
+          <path class="heart-shape" d="M20.4 5.8a5 5 0 0 0-7.1 0L12 7.1l-1.3-1.3a5 5 0 1 0-7.1 7.1L12 21.3l8.4-8.4a5 5 0 0 0 0-7.1Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
         </svg>
         <span id="like-count">22</span>
       </button>
 
       <a
         href="/posts"
-        class="link-focus rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] transition hover:border-[var(--color-blue)] hover:text-[var(--color-blue-deep)]"
+        class="posts-link link-focus inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition"
       >
+        <svg viewBox="0 0 24 24" class="size-4" aria-hidden="true">
+          <path d="M7 4.5h10a1.5 1.5 0 0 1 1.5 1.5v12A1.5 1.5 0 0 1 17 19.5H7A1.5 1.5 0 0 1 5.5 18V6A1.5 1.5 0 0 1 7 4.5Z" fill="none" stroke="currentColor" stroke-width="1.7" />
+          <path d="M9 9h6M9 12h6M9 15h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+        </svg>
         Posts
       </a>
 
       <button
-        class="link-focus hidden rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-2 text-sm text-[var(--color-text)] transition hover:border-[var(--color-blue)] hover:text-[var(--color-blue-deep)] md:inline-flex"
+        id="language-toggle"
+        class="language-switch link-focus hidden h-10 w-[76px] items-center justify-between rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] p-1 transition hover:border-[var(--color-blue)] md:flex"
         type="button"
+        aria-label="Switch to English"
+        title="Switch language"
+        data-current="vi"
       >
-        vi/en
+        <span class="language-option" data-lang-option="vi" title="Tiếng Việt">
+          <img src={viFlagSrc} alt="VI" class="flag-icon" />
+        </span>
+
+        <span class="language-option" data-lang-option="en" title="English">
+          <img src={usFlagSrc} alt="EN" class="flag-icon" />
+        </span>
       </button>
 
       <button
@@ -81,6 +99,7 @@
   const moonIcon = document.querySelector<SVGElement>('[data-theme-icon="moon"]');
   const likeButton = document.querySelector<HTMLButtonElement>("#like-button");
   const likeCount = document.querySelector<HTMLElement>("#like-count");
+  const languageToggle = document.querySelector<HTMLButtonElement>("#language-toggle");
 
   function syncThemeIcon() {
     const isDark = document.documentElement.classList.contains("dark");
@@ -98,12 +117,38 @@
 
   if (likeButton && likeCount) {
     const savedLikes = Number(localStorage.getItem("nii-likes") ?? likeCount.textContent ?? 22);
+    const savedLiked = localStorage.getItem("nii-liked") === "true";
     likeCount.textContent = String(savedLikes);
+    likeButton.classList.toggle("is-liked", savedLiked);
+    likeButton.setAttribute("aria-pressed", String(savedLiked));
 
     likeButton.addEventListener("click", () => {
-      const nextLikes = Number(likeCount.textContent ?? 0) + 1;
+      const isLiked = !likeButton.classList.contains("is-liked");
+      const currentLikes = Number(likeCount.textContent ?? 0);
+      const nextLikes = Math.max(0, currentLikes + (isLiked ? 1 : -1));
       likeCount.textContent = String(nextLikes);
       localStorage.setItem("nii-likes", String(nextLikes));
+      localStorage.setItem("nii-liked", String(isLiked));
+      likeButton.classList.toggle("is-liked", isLiked);
+      likeButton.classList.remove("is-popping");
+      void likeButton.offsetWidth;
+      likeButton.classList.add("is-popping");
+      likeButton.setAttribute("aria-pressed", String(isLiked));
+    });
+  }
+
+  if (languageToggle) {
+    const savedLang = localStorage.getItem("nii-lang") ?? "vi";
+    const setLanguage = (lang: string) => {
+      const nextLang = lang === "en" ? "en" : "vi";
+      languageToggle.dataset.current = nextLang;
+      languageToggle.setAttribute("aria-label", nextLang === "vi" ? "Switch to English" : "Switch to Vietnamese");
+      localStorage.setItem("nii-lang", nextLang);
+    };
+
+    setLanguage(savedLang);
+    languageToggle.addEventListener("click", () => {
+      setLanguage(languageToggle.dataset.current === "vi" ? "en" : "vi");
     });
   }
 </script>
