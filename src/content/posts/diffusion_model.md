@@ -13,7 +13,7 @@ So far, I’ve written about three types of generative models: GAN, VAE, and Flo
 
 Diffusion models gradually add Gaussian noise to data...
 
-![Forward diffusion](/public/avatar_nii.png)
+![Forward diffusion overview](/diffusion-overview.svg)
 
 ## Reverse process
 

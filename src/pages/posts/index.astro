@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
+import PostCard from "../../components/PostCard.astro";
 
 const posts = await getCollection("posts", ({ data }) => !data.draft);
 
@@ -11,19 +12,14 @@ posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 <BaseLayout title="Posts">
     <Header />
 
-    <main class="max-w-4xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-semibold mb-8">Posts</h1>
+    <main class="page-shell py-10 sm:py-12">
+        <div class="mb-8">
+            <p class="mb-3 text-sm uppercase tracking-[0.18em] text-[var(--color-blue-deep)]">Writing</p>
+            <h1 class="text-4xl font-semibold text-[var(--color-text)]">Posts</h1>
+        </div>
 
-        <div class="space-y-6">
-            {posts.map((post) => (
-                <a href={`/posts/${post.id.replace(".md", "")}`} class="block rounded-2xl border p-6 hover:shadow-md">
-                <h2 class="text-2xl font-semibold">{post.data.title}</h2>
-                <p class="text-neutral-500 mt-2">{post.data.description}</p>
-                <p class="text-sm text-neutral-400 mt-3">
-                    {post.data.date.toLocaleDateString()}
-                </p>
-                </a>
-            ))}
+        <div class="grid gap-5 md:grid-cols-2">
+            {posts.map((post) => <PostCard post={post} />)}
         </div>
     </main>
 </BaseLayout>

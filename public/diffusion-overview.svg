@@ -1,0 +1,64 @@
+<svg width="960" height="520" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="520" rx="18" fill="#FFFDF8"/>
+  <rect x="34" y="34" width="892" height="452" rx="14" fill="#F7FBFA" stroke="#187DA0" stroke-width="4"/>
+  <g font-family="Questrial, Arial, sans-serif" fill="#24323A" font-size="22">
+    <text x="72" y="96" font-weight="700">Generative model families</text>
+    <text x="72" y="172">GAN</text>
+    <text x="72" y="256">VAE</text>
+    <text x="72" y="340">Flow</text>
+    <text x="72" y="424">Diffusion</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6F7F86"/>
+    </marker>
+  </defs>
+  <g stroke="#6F7F86" stroke-width="2" marker-end="url(#arrow)">
+    <path d="M188 166h82"/>
+    <path d="M394 166h82"/>
+    <path d="M600 166h82"/>
+    <path d="M188 250h82"/>
+    <path d="M394 250h82"/>
+    <path d="M600 250h82"/>
+    <path d="M188 334h82"/>
+    <path d="M394 334h82"/>
+    <path d="M600 334h82"/>
+    <path d="M188 418h82"/>
+    <path d="M394 418h82" stroke-dasharray="8 8"/>
+    <path d="M600 418h82" stroke-dasharray="8 8"/>
+  </g>
+  <g font-family="Questrial, Arial, sans-serif" font-size="20" text-anchor="middle">
+    <g>
+      <rect x="270" y="132" width="124" height="68" rx="6" fill="#CFE9DD" stroke="#6DAA7C" stroke-width="2"/>
+      <text x="332" y="172" fill="#2E7040">Discriminator</text>
+      <rect x="476" y="132" width="124" height="68" rx="6" fill="#D9ECFA" stroke="#5494C9" stroke-width="2"/>
+      <text x="538" y="172" fill="#2F6F9F">Generator</text>
+      <rect x="682" y="132" width="124" height="68" rx="6" fill="#F2CBD0" stroke="#B96B76" stroke-width="2"/>
+      <text x="744" y="172" fill="#87424D">Sample</text>
+    </g>
+    <g>
+      <rect x="270" y="216" width="124" height="68" rx="6" fill="#CFE9DD" stroke="#6DAA7C" stroke-width="2"/>
+      <text x="332" y="256" fill="#2E7040">Encoder</text>
+      <rect x="476" y="216" width="124" height="68" rx="6" fill="#D9ECFA" stroke="#5494C9" stroke-width="2"/>
+      <text x="538" y="256" fill="#2F6F9F">Latent z</text>
+      <rect x="682" y="216" width="124" height="68" rx="6" fill="#D9ECFA" stroke="#5494C9" stroke-width="2"/>
+      <text x="744" y="256" fill="#2F6F9F">Decoder</text>
+    </g>
+    <g>
+      <rect x="270" y="300" width="124" height="68" rx="6" fill="#CFE9DD" stroke="#6DAA7C" stroke-width="2"/>
+      <text x="332" y="340" fill="#2E7040">Data x</text>
+      <rect x="476" y="300" width="124" height="68" rx="6" fill="#E8EBD0" stroke="#92995C" stroke-width="2"/>
+      <text x="538" y="340" fill="#626A2B">Flow f(x)</text>
+      <rect x="682" y="300" width="124" height="68" rx="6" fill="#F2CBD0" stroke="#B96B76" stroke-width="2"/>
+      <text x="744" y="340" fill="#87424D">Latent z</text>
+    </g>
+    <g>
+      <rect x="270" y="384" width="124" height="68" rx="6" fill="#CFE9DD" stroke="#6DAA7C" stroke-width="2"/>
+      <text x="332" y="424" fill="#2E7040">x0</text>
+      <rect x="476" y="384" width="124" height="68" rx="6" fill="#FFE49B" stroke="#C79A24" stroke-width="2"/>
+      <text x="538" y="424" fill="#8A6812">x1...xt</text>
+      <rect x="682" y="384" width="124" height="68" rx="6" fill="#F2CBD0" stroke="#B96B76" stroke-width="2"/>
+      <text x="744" y="424" fill="#87424D">noise z</text>
+    </g>
+  </g>
+</svg>

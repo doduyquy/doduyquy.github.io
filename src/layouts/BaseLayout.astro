@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 const {
   title = "nii's portfolio",
   description = "Personal portfolio and research blog",
@@ -6,15 +8,29 @@ const {
 ---
 
 <!doctype html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
 
-  <body class="bg-white text-neutral-800">
+  <body class="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] antialiased">
     <slot />
   </body>
 </html>

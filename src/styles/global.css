@@ -1,1 +1,164 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --color-bg: #fff8ef;
+  --color-surface: #fffdf8;
+  --color-surface-soft: #f5efe7;
+  --color-text: #24323a;
+  --color-muted: #6f7f86;
+  --color-line: #d8e6e7;
+  --color-blue: #187da0;
+  --color-blue-deep: #0c526b;
+  --color-blue-soft: #dff5f7;
+  --shadow-soft: 0 18px 60px rgba(25, 83, 96, 0.08);
+}
+
+.dark {
+  color-scheme: dark;
+  --color-bg: #132228;
+  --color-surface: #182b31;
+  --color-surface-soft: #223840;
+  --color-text: #eef8f7;
+  --color-muted: #a9bec2;
+  --color-line: #2f5058;
+  --color-blue: #78d5ec;
+  --color-blue-deep: #b6eff9;
+  --color-blue-soft: #183f4a;
+  --shadow-soft: 0 18px 60px rgba(0, 0, 0, 0.2);
+}
+
+html {
+  font-family: "Questrial", system-ui, sans-serif;
+  background: var(--color-bg);
+}
+
+body {
+  letter-spacing: 0;
+}
+
+::selection {
+  background: var(--color-blue-soft);
+  color: var(--color-blue-deep);
+}
+
+.handwriting {
+  /* font-family: "Caveat", cursive; */
+  font-family: "Dancing Script", "Imperial Script", "Fleur De Leah", "Questrial", cursive;
+}
+
+.page-shell {
+  width: min(100% - 2rem, 1120px);
+  margin-inline: auto;
+}
+
+.site-header {
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+}
+
+.scribble-panel {
+  position: relative;
+  border: 1px solid var(--color-line);
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(120, 213, 236, 0.14), transparent 32%),
+    var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.scribble-panel::before {
+  content: "";
+  position: absolute;
+  inset: -7px 22px auto;
+  height: 36px;
+  border-top: 2px solid var(--color-blue-deep);
+  border-radius: 44% 56% 48% 52% / 100% 100% 0 0;
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.content-card {
+  border: 1px solid color-mix(in srgb, var(--color-line) 88%, transparent);
+  border-radius: 8px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.link-focus {
+  outline: none;
+}
+
+.link-focus:focus-visible {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-blue) 30%, transparent);
+}
+
+.article-body {
+  color: var(--color-text);
+}
+
+.article-body h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: clamp(1.55rem, 2vw, 2rem);
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.article-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.35rem;
+  color: var(--color-text);
+}
+
+.article-body p {
+  margin-block: 1rem;
+  color: color-mix(in srgb, var(--color-text) 90%, var(--color-muted));
+  line-height: 1.7;
+}
+
+.article-body a {
+  color: var(--color-blue-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-body img {
+  max-width: min(100%, 680px);
+  margin: 2rem auto;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  background: var(--color-surface);
+}
+
+.article-body ul,
+.article-body ol {
+  margin-block: 1rem;
+  padding-left: 1.25rem;
+}
+
+.article-body li {
+  margin-block: 0.4rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 1.25rem, 1120px);
+  }
+
+  .scribble-panel {
+    border-radius: 24px;
+  }
+
+  .scribble-panel::before {
+    inset-inline: 16px;
+  }
+}
