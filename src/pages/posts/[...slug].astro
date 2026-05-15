@@ -27,12 +27,12 @@ const readingTime = Math.max(1, Math.ceil(words / 220));
 <BaseLayout title={post.data.title}>
     <Header />
 
-    <main class="page-shell grid grid-cols-1 gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:py-12">
-        <article class="article-body max-w-3xl">
+    <main id="post-layout" class="post-layout page-shell grid grid-cols-1 gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:py-12">
+        <article class="post-article article-body max-w-3xl">
             <header class="mb-8">
                 <h1 class="text-4xl font-semibold leading-tight text-[var(--color-text)] sm:text-5xl">{post.data.title}</h1>
 
-                <p class="mt-3 text-[var(--color-muted)]">
+                <p class="post-meta mt-3 text-[var(--color-muted)]">
                     Date: {formattedDate} | Estimated Reading Time: {readingTime} min
                 </p>
             </header>

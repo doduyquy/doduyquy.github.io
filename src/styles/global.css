@@ -191,6 +191,54 @@ body {
   color: var(--color-text);
 }
 
+.post-layout,
+.post-article,
+.toc-aside,
+.toc-panel,
+.toc-toggle {
+  transition:
+    max-width 220ms ease,
+    grid-template-columns 220ms ease,
+    opacity 180ms ease,
+    transform 220ms ease,
+    padding 220ms ease,
+    border-color 220ms ease;
+}
+
+.post-meta {
+  color: color-mix(in srgb, var(--color-muted) 76%, transparent);
+  font-style: italic;
+}
+
+.toc-panel {
+  transform-origin: top right;
+}
+
+@media (min-width: 1024px) {
+  .post-layout.is-toc-collapsed {
+    grid-template-columns: minmax(0, 1fr) 64px;
+  }
+
+  .post-layout.is-toc-collapsed .post-article {
+    max-width: min(100%, 960px);
+  }
+
+  .post-layout.is-toc-collapsed .toc-aside {
+    padding-left: 1rem;
+    border-left-color: transparent;
+  }
+
+  .post-layout.is-toc-collapsed .toc-panel {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(16px) scale(0.98);
+  }
+
+  .post-layout.is-toc-collapsed .toc-toggle {
+    transform: translateX(14px);
+  }
+}
+
 .article-body h2 {
   margin-top: 3rem;
   margin-bottom: 1rem;

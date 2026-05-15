@@ -3,13 +3,15 @@ const { headings = [] } = Astro.props;
 const visibleHeadings = headings.filter((heading) => heading.depth <= 3);
 ---
 
-<aside class="hidden border-l border-[var(--color-line)] pl-6 lg:block">
+<aside id="toc-aside" class="toc-aside hidden border-l border-[var(--color-line)] pl-6 lg:block">
   <div class="sticky top-24">
     <button
-      class="mb-4 grid size-10 place-items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-blue-deep)]"
+      id="toc-toggle"
+      class="toc-toggle link-focus mb-4 grid size-10 place-items-center rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] text-[var(--color-blue-deep)] transition hover:border-[var(--color-blue)]"
       type="button"
-      aria-label="Table of contents"
-      title="Table of contents"
+      aria-label="Hide table of contents"
+      aria-expanded="true"
+      title="Toggle table of contents"
     >
       <svg viewBox="0 0 24 24" class="size-5" aria-hidden="true">
         <path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" />
@@ -17,7 +19,7 @@ const visibleHeadings = headings.filter((heading) => heading.depth <= 3);
     </button>
 
     {visibleHeadings.length > 0 && (
-      <nav class="content-card p-4" aria-label="Table of contents">
+      <nav id="toc-panel" class="toc-panel content-card p-4" aria-label="Table of contents">
         <h2 class="mb-3 text-lg font-semibold text-[var(--color-text)]">Table of contents</h2>
         <ol class="space-y-2 text-sm text-[var(--color-muted)]">
           {visibleHeadings.map((heading) => (
@@ -32,3 +34,17 @@ const visibleHeadings = headings.filter((heading) => heading.depth <= 3);
     )}
   </div>
 </aside>
+
+<script>
+  const tocToggle = document.querySelector<HTMLButtonElement>("#toc-toggle");
+  const postLayout = document.querySelector<HTMLElement>("#post-layout");
+
+  tocToggle?.addEventListener("click", () => {
+    const isCollapsed = postLayout?.classList.toggle("is-toc-collapsed") ?? false;
+    tocToggle.setAttribute("aria-expanded", String(!isCollapsed));
+    tocToggle.setAttribute(
+      "aria-label",
+      isCollapsed ? "Show table of contents" : "Hide table of contents",
+    );
+  });
+</script>
