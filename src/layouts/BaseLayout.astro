@@ -1,0 +1,20 @@
+---
+const {
+  title = "nii's portfolio",
+  description = "Personal portfolio and research blog",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+
+  <body class="bg-white text-neutral-800">
+    <slot />
+  </body>
+</html>

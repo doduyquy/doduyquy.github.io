@@ -39,7 +39,7 @@ const papers = defineCollection({
   }),
 });
 
-export const collection = {
+export const collections = {
     posts,
     projects,
     papers,

@@ -1,5 +1,5 @@
-// Read data from `project` & `papers` -> render to card
 ---
+// Read data from `project` & `papers` -> render to card
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
@@ -28,7 +28,7 @@ const papers = await getCollection("papers", ({ data }) => data.featured);
 				</div>
 
 				<div class="text-center">
-					<img src="/avatar.jpg" class="w-24 h-24 rounded-full mx-auto mb-4" />
+					<img src="/avatar_nii.png" class="w-24 h-24 rounded-full mx-auto mb-4" />
 					<h1 class="text-3xl font-semibold">Đỗ Duy Quý</h1>
 					<div class="mt-2">⌘ ✉</div>
 				</div>
@@ -45,7 +45,6 @@ const papers = await getCollection("papers", ({ data }) => data.featured);
 			</div>
     	</section>
 
-		// Split: left-project, right-papers
 		<section class="grid grid-cols-1 md:grid-cols-2 gap-10">
 			<div>
 				<h2 class="text-3xl text-center mb-6">Projects</h2>
@@ -66,13 +65,3 @@ const papers = await getCollection("papers", ({ data }) => data.featured);
 </BaseLayout>
 
 
-
-
-// import Layout from '../layouts/Layout.astro';
-// import Welcome from '../components/Welcome.astro';
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
-
-// <Layout>
-// 	<Welcome />
-// </Layout>
