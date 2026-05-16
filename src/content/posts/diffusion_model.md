@@ -14,20 +14,25 @@ So far, I’ve written about three types of generative models: GAN, VAE, and Flo
 Diffusion models gradually add Gaussian noise to data...
 Diffusion Model (Mô hình khuếch tán) là một loại mô hình học sâu (deep learning) tạo sinh (generative model) tiên tiến, được sử dụng chủ yếu để tạo ra dữ liệu mới chất lượng cao như hình ảnh, video, hoặc âm thanh từ nhiễu ngẫu nhiên.
 
-![Forward diffusion overview](/diffusion-overview.svg)
 
+<figure>
+  <img src="/diffusion-overview.svg" alt="Mô tả hình ảnh" />
+  <figcaption>Hình 1: Quá trình forward của diffusion</figcaption>
+</figure>
 
 ### 1. Quá trình thêm nhiễu từng bước (Step-by-step Forward Process)
 Tại mỗi bước $t$, một lượng nhiễu nhỏ được thêm vào dữ liệu của bước trước đó $x_{t-1}$:
 
-$
+$$
 q(x_t | x_{t-1}) = \mathcal{N}(x_t; \sqrt{1 - \beta_t} x_{t-1}, \beta_t \mathbf{I})
-$
+$$
 
 ### 2. Quá trình thêm nhiễu trực tiếp từ ảnh gốc (Marginal Distribution)
 Nhờ tính chất của phân phối chuẩn, ta có thể tính trực tiếp trạng thái $x_t$ từ ảnh gốc $x_0$ ở bất kỳ bước $t$ nào mà không cần tính tuần tự:
 
-$$q(x_t | x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t} x_0, (1 - \bar{\alpha}_t) \mathbf{I})$$
+$$
+q(x_t | x_0) = \mathcal{N}(x_t; \sqrt{\bar{\alpha}_t} x_0, (1 - \bar{\alpha}_t) \mathbf{I})
+$$
 
 ### 3. Công thức lấy mẫu (Reparameterization Trick)
 Trong thực hành, để tạo ra $x_t$, chúng ta sử dụng công thức biến đổi sau:
